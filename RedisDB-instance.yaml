@@ -363,6 +363,7 @@ Resources:
                 sed -i '/\#/! s/bind 127.0.0.1/bind 0.0.0.0/' /etc/redis/redis.conf
                 sed -i 's/#requirepass foobared/requirepass ${DBPassword}/' /etc/redis/redis.conf
                 sed -i 's/databases 16/databases ${DBNumber}/' /etc/redis/redis.conf
+                echo 'loadmodule /usr/lib64/redis/modules/librejson.so' >> /etc/redis/redis.conf
                 cat <<EOT >>  /etc/security/limits.conf
                 * soft nofile 64000
                 * hard nofile 64000
